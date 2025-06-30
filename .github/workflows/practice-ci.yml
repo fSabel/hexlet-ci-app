@@ -1,0 +1,22 @@
+name: Makefile CI
+
+on:
+  push:
+    branches: [ "main" ]
+    
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Setup project
+      run: make setup
+
+    - name: Run tests
+      run: make test
+      
+    - name: Run lint
+      run: make lint
